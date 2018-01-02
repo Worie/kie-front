@@ -1,0 +1,143 @@
+.testimonials {
+  margin-bottom: $offset-base;
+  padding: 0;
+  background: $color-green;
+  color: $color-white;
+
+  @media only screen and #{$medium} {
+    padding: $offset-base;
+  }
+}
+
+.testimonial {
+  $photo-size: 240px;
+  $photo-size-mobile: ($photo-size / 3);
+  $offset-desktop: $offset-base;
+
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 0;
+  padding: $offset-base;
+  padding-bottom: ($offset-base * 5);
+
+  @extend %font-montserrat-light;
+
+  footer {
+    $mobile-gap: 20px;
+    $offset-left: ($photo-size-mobile + $offset-base + $mobile-gap);
+
+    // On smaller screens the footer has the same height as photo.
+    height: $photo-size-mobile;
+
+    @include position(
+      $position: absolute,
+      $bottom: $offset-base,
+      $left: $offset-left
+    );
+  }
+
+  @media only screen and #{$medium} {
+    flex-direction: row;
+    min-height: 280px;
+    padding: 0 $offset-desktop;
+
+    footer {
+      position: static;
+      width: initial;
+      height: initial;
+    }
+  }
+
+  blockquote {
+    margin: 0;
+
+    cite {
+      font-style: normal;
+    }
+  }
+
+  .user-fullname {
+    display: block;
+    font-size: $font-size-mobile-medium;
+
+    @extend %font-montserrat-regular;
+  }
+
+  .user-job {
+    display: block;
+  }
+
+  .user-details {
+    @media only screen and #{$medium} {
+      padding-top: ($offset-base * 2);
+    }
+  }
+
+  .user-photo {
+    $border-width: 5px;
+
+    border: $border-width solid $color-white;
+
+    @include equal-sizes($photo-size-mobile);
+    @include position(
+      $position: absolute,
+      $bottom: $offset-base
+    );
+
+    @media only screen and #{$medium} {
+      position: static;
+      margin-right: $offset-base;
+      margin-left: 0;
+      border-width: ($border-width * 2);
+
+      @include equal-sizes($photo-size);
+    }
+
+    @media only screen and #{$desktop} {
+      margin-right: ($offset-base * 3);
+    }
+  }
+
+  .quote {
+    width: 100%;
+    // Support: IE 10, 11.
+    // Specified max-width is needed to prevent the element overflow its flex
+    // container parent.
+    max-width: 430px;
+    margin: 0;
+
+    @media only screen and #{$medium} {
+      padding-top: $offset-base;
+    }
+  }
+
+  .social {
+    $width: $photo-size;
+    $item-offset: 40px;
+
+    display: flex;
+    width: $width;
+
+    @include position(
+      $position: absolute,
+      $bottom: 0,
+      $left: 0
+    );
+
+    @media only screen and #{$medium} {
+      left: $offset-base;
+      justify-content: center;
+    }
+
+    a {
+      color: $color-white;
+
+      @extend %href;
+    }
+
+    a:not(:last-of-type) {
+      margin-right: $item-offset;
+    }
+  }
+}

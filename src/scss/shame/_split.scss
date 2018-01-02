@@ -1,0 +1,45 @@
+
+.gutter {
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.gutter.gutter-horizontal {
+  display: none;
+
+  @media only screen and #{$medium} {
+    display: block;
+    cursor: col-resize;
+    background-color: $color-grey;
+    border: 1px solid #AFB7D0;
+    border-top: none;
+    border-bottom: none;
+    box-sizing: border-box;
+    background-image: url('/assets/images/icons/gutter-horizontal.png');
+  }
+}
+
+.gutter.gutter-vertical {
+  display: none;
+  @media only screen and #{$medium} {
+    display: block;
+    cursor: row-resize;
+    background-color: $color-grey;
+    border: 1px solid #AFB7D0;
+    border-right: none;
+    border-left: none;
+    box-sizing: border-box;
+    background-image: url('/assets/images/icons/gutter-vertical.png');
+  }
+}
+
+.split.split-horizontal, .gutter.gutter-horizontal {
+  float: left;
+}
+
+
+.preview-hidden .gutter.gutter-vertical,
+.video-hidden .gutter.gutter-vertical {
+  width: 50px;
+  align-self: flex-end;
+}

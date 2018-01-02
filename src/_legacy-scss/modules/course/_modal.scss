@@ -1,0 +1,216 @@
+.exercise-modal {
+  width: 800px;
+  height: 500px;
+
+  background-color: $color-white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 5px;
+  overflow: hidden;
+
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.2s;
+  transitiom-property: transform, opacity;
+  transition-timing-function:  linear;
+  transition-delay: 0.5s; // transition-duration of blur (0.3) + offset (0.2)
+  will-change: transform, opacity;
+
+  &.open {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  &.initial {
+    .sad-course-section {
+      display: flex;
+    }
+    .modal-payment-form {
+      display: none;
+    }
+  }
+
+
+  .container-title {
+    color: $color-purple;
+    font-size: 2rem;
+    margin: 0;
+    margin-bottom: 25px;
+
+    @extend %font-montserrat-bold;
+  }
+
+  label {
+    color: $color-purple;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+
+    text-transform: uppercase;
+    @extend %font-montserrat-bold;
+  }
+
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-wrapper .input-row:first-child {
+    margin-right: 40px;
+  }
+
+  .input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+}
+
+.final-steps {
+  background-color: rgba($color-purple, 0.1);
+  height: 95px;
+  width: 100%;
+
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.exercise-modal-title {
+  height: 65px;
+  color: $color-white;
+  background-color: $color-purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.9rem;
+  position: relative;
+
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+
+  @extend %font-bebasneue-bold;
+
+  .arrow-back {
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    background: #595c7c;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+  }
+}
+
+.initial .exercise-modal-title .arrow-back {
+  display: none;
+}
+
+.exercise-modal .modal-payment-form {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  .modal-container {
+    width: 300px;
+  }
+}
+
+.discount-wrapper {
+  height: 35px;
+  position: relative;
+  border: 1px solid $color-purple;
+  border-radius: 3px;
+  padding-left: 15px;
+  background-color: $color-white;
+  overflow: hidden;
+  width: 300px;
+}
+.discount-input {
+  height: 100%;
+  width: calc(100% - 30px); // 25is button width, 5 is its margin on the right
+  border: none;
+  outline: none; //todo: jarek solution
+}
+.discount-button {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  height: 25px;
+  width: 25px;
+  background-color: $color-purple;
+  border: none;
+  border-radius: 3px;
+}
+
+.product-cost {
+  margin-left: auto;
+  margin-right: 40px;
+  font-size: 2rem;
+
+  color: $color-purple;
+
+  @extend %font-bebasneue-bold;
+}
+
+.button-pay {
+  width: auto;
+}
+
+.sad-course-section {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+
+  height: calc(100% - 65px); // modal-title
+
+  @extend %font-bebasneue-bold;
+
+  img {
+    margin-right: 60px;
+    width: 300px;
+  }
+}
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  width: 300px;
+
+  .modal-details-title {
+    font-size: 2.5rem;
+    color: $color-purple;
+
+    margin: 0;
+    margin-bottom: 30px;
+  }
+
+  p {
+    color: $color-lightgrey-text;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    align-self: space-around;
+  }
+}

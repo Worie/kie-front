@@ -1,0 +1,209 @@
+/*
+ * Brackets Default Theme
+ *
+ * Defines all the variables that one can configure in a theme. This should
+ * contain all variables / mixins for UI styling that we want to be able to
+ * change in a theme.
+ *
+ * Throughout the rest of the LESS files we should _only_ use color
+ * variable names that are on the LHS of the list below. So, if we
+ * need a new color for some UI element, we should add a variable
+ * in this file.
+ */
+/* Define some variables used in multiple places */
+/* Code Styling */
+/* line 15, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror,
+.CodeMirror-scroll {
+  background-color: #1d1f21;
+  color: #dddddd;
+  margin-top: 0;
+}
+
+/* line 22, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-focused .CodeMirror-activeline-background {
+  background: #2f2f2f; }
+
+/* line 25, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.show-line-padding .CodeMirror-focused .CodeMirror-activeline-background {
+  box-shadow: inset 15px 0 0 0 #000; }
+
+/* line 28, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-focused .CodeMirror-activeline .CodeMirror-gutter-elt {
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+/* line 32, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-focused .CodeMirror-activeline .inline-widget .CodeMirror-gutter-elt {
+  color: #767676; }
+
+/* line 35, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-atom,
+.cm-string,
+.cm-string-2,
+.cm-hr {
+  color: #d89333; }
+
+/* line 41, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-number,
+.cm-attribute,
+.cm-plus {
+  color: #85a300; }
+
+/* line 46, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-def,
+.cm-property {
+  color: #b77fdb; }
+
+/* line 50, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-variable,
+.cm-variable-2,
+.cm-variable-3,
+.cm-operator,
+.cm-meta,
+.cm-bracket {
+  color: #dddddd; }
+
+/* line 58, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-comment {
+  color: #767676; }
+
+/* line 61, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-minus {
+  color: #dc322f; }
+
+/* line 64, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-header {
+  color: #d85896; }
+
+/* line 67, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-link {
+  color: #b77fdb;
+  text-decoration: none; }
+
+/* line 71, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-rangeinfo {
+  color: #6c71c4; }
+
+/* line 74, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-keyword,
+.cm-qualifier,
+.cm-builtin,
+.cm-tag,
+.cm-quote {
+  color: #6c9ef8; }
+
+/* line 81, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.cm-error {
+  color: #dc322f; }
+
+/* Extra CSS */
+/* line 85, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-searching {
+  background-color: #d3cd69; }
+
+/* line 88, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-searching.searching-current-match {
+  background-color: #f6a644; }
+
+/* line 91, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-cursor {
+  border-left: 1px solid #c5c8c6 !important; }
+
+/* line 94, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-gutters {
+  background-color: #1d1f21;
+  border-right: none; }
+
+/* line 98, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-linenumber {
+  color: #767676; }
+
+/* line 101, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror .CodeMirror-selected {
+  background: #333f48; }
+
+/* line 104, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-focused .CodeMirror-selected {
+  background: #0050a0; }
+
+/* line 107, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-matchingbracket,
+.CodeMirror-matchingtag {
+  /* Ensure visibility against gray inline editor background */
+  background-color: #2e5c00;
+  color: #dddddd !important; }
+
+/* line 113, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-overwrite .CodeMirror-cursor {
+  border-left: none !important;
+  border-bottom: 1px solid #fff; }
+
+/*
+    CodeMirror's use of descendant selectors for certain styling causes problems when editors are
+    nested because, for items in the inner editor, the left-hand clause in the selector will now
+    match either the actual containing CodeMirror instance *OR* the outer "host" CodeMirror instance.
+
+    TODO (issue #324): We'll still have problems if editors can be nested more than one level deep,
+    or if any other descendant-selector-driven CM styles can differ between inner & outer editors
+    (potential problem areas include line wrap and coloring theme: basically, anything in codemirror.css
+    that uses a descandant selector where the CSS class name to the left of the space is something
+    other than a vanilla .CodeMirror)
+ */
+/* line 128, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror .CodeMirror {
+  background: transparent; }
+
+/* line 131, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror .CodeMirror .CodeMirror-gutters {
+  background: transparent;
+  border-right: none; }
+
+/* line 135, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror .CodeMirror .CodeMirror-activeline-background {
+  background: transparent; }
+
+/* line 138, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror .CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
+  background: transparent;
+  color: #767676; }
+
+/* line 142, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror .CodeMirror-focused .CodeMirror-activeline-background {
+  background: #2f2f2f; }
+
+/* line 145, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror .CodeMirror-focused .CodeMirror-activeline .CodeMirror-gutter-elt {
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+/* line 149, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-foldgutter-open:after {
+  color: #666; }
+
+/* line 152, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-foldgutter-folded:after {
+  color: #aaa; }
+
+/* line 155, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror.over-gutter .CodeMirror-foldgutter-open:after,
+.CodeMirror-activeline .CodeMirror-foldgutter-open:after {
+  color: #888; }
+
+/* line 159, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.CodeMirror-foldmarker {
+  border-color: #000;
+  color: #ccc;
+  background-color: #444; }
+
+/* Non-editor styling */
+/* line 165, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.image-view,
+.not-editor {
+  background-color: #1d1f21; }
+
+/* line 169, /Users/Worie/Documents/Programowanie/functionite/interactive-ebook/src/scss/cm-theme-dark-theme.scss */
+.view-pane .image-view {
+  color: #dddddd; }
+
+/*# sourceMappingURL=cm-theme-dark-theme.css.map */

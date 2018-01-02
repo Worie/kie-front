@@ -1,0 +1,23 @@
+<svg width="50" height="42" viewBox="0 0 50 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>windows</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(2599 -296)">
+<g id="windows">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(-2586.5 296)" fill="#FFFFFF"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(-2599 309.364)" fill="#FFFFFF"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(-2592.75 302.682)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 37.5 0L 0 0L 0 28.6364L 37.5 28.6364L 37.5 0Z"/>
+<path id="path1_fill" d="M 4.46429 0L 0 0L 0 28.6364L 37.5 28.6364L 37.5 23.8636L 4.46429 23.8636L 4.46429 0Z"/>
+</defs>
+</svg>

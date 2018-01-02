@@ -1,0 +1,77 @@
+%product-hero {
+  $hero-header-items-width: 290px;
+
+  flex-direction: column;
+  height: 400px;
+  margin-bottom: 0;
+  background-color: transparent;
+  font-size: $font-size-gigantic;
+  box-shadow: none;
+
+  .hero-title {
+    margin-top: ($offset-base / 2);
+    margin-bottom: ($offset-base * 3);
+    font-size: $font-size-almost-enormous;
+
+    @extend %font-bebasneue-bold;
+
+    @media only screen and #{$medium} {
+      font-size: $font-size-enormous;
+    }
+  }
+
+  .price {
+    display: flex;
+    justify-content: center;
+    width: $hero-header-items-width;
+    margin: 0;
+    color: $color-green;
+    font-size: $font-size-gigantic;
+  }
+
+  .amount {
+    font-weight: 700;
+  }
+
+  .date {
+    margin: 0;
+    margin-bottom: ($offset-base * 2);
+    color: $color-green;
+    font-size: $font-size-mobile-medium;
+    text-transform: uppercase;
+  }
+
+  .hero-more-details {
+    display: block;
+    align-self: flex-start;
+    min-width: $hero-header-items-width;
+    height: 75px;
+    border-radius: 50px;
+    border-color: $color-gold;
+    background: $color-gold;
+    font-size: $font-size-giant;
+    line-height: 70px;
+
+    @extend %font-montserrat-regular;
+  }
+
+  .hero-description {
+    width: $hero-header-items-width;
+    margin-bottom: $offset-base;
+    font-size: $font-size-bigger;
+
+    @extend %font-montserrat-regular;
+
+    @media only screen and #{$medium} {
+      width: $hero-header-items-width;
+    }
+  }
+
+  @media only screen and #{$desktop} {
+    height: 500px;
+    background: {
+      position: 65% ($offset-base / 2);
+      size: contain;
+    }
+  }
+}

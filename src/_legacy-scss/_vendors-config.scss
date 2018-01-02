@@ -1,0 +1,24 @@
+// Material Design Iconic Font config
+
+$zmdi-font-name: 'Material-Design-Iconic-Font' !default;
+$zmdi-font-path: '../fonts/material-design-iconic-font/' !default;
+$zmdi-css-prefix: icon-hc !default;
+$zmdi-icon-prefix: icon !default;
+$zmdi-version: '2.2.0' !default;
+
+$zmdi-border-color: #9e9e9e !default;
+$zmdi-inverse: #ffffff !default;
+$zmdi-li-width: (30em / 14) !default;
+
+// Legacy code for backward capability with 2.0.x version
+
+$md-font-path: '../fonts/material-design-iconic-font/' !default;
+$md-css-prefix: icon !default;
+$md-icon-prefix: icon !default;
+$md-version: '2.2.0' !default;
+
+$md-border-color: #9e9e9e !default;
+$md-inverse: #ffffff !default;
+$md-li-width: (30em / 14) !default;
+
+// ============================================

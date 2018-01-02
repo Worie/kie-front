@@ -1,0 +1,264 @@
+%transition-scale-down {
+  transform: scale(0.95);
+  transition: transform $transition-time;
+}
+
+%transition-scale-up {
+  transform: scale(1.05);
+  transition: transform $transition-time;
+}
+
+%transition-scale-regular {
+  transform: scale(1);
+  transition: transform $transition-time;
+}
+
+%transition-opaque {
+  transition: opacity $transition-time;
+  opacity: 0;
+}
+
+%transition-not-opaque {
+  transition: opacity $transition-time;
+  opacity: 1;
+}
+
+%transition-click {
+  &:active {
+    @extend %transition-scale-down;
+  }
+}
+
+@function bundle-asset($path) {
+  @return '../images/' + $path;
+}
+
+@mixin box-shadow(
+  $color-opacity: 0.15,
+  $color: rgba($color-black, $color-opacity),
+  $size: 6px
+) {
+  box-shadow: 0 $size (2 * $size) 0 $color;
+}
+
+@mixin equal-sizes($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin position(
+  $position: initial,
+  $top: initial,
+  $right: initial,
+  $bottom: initial,
+  $left: initial
+) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// This mixin is intended to be used everywhere absolute positioned items cannot
+// be centered in a standard way.
+// For example, absolute positioned flex-items are treated as actual flex-items
+// only in Chrome. Other browsers set their position according to standard flow.
+// See: https://developer.mozilla.org/en/docs/Web/CSS/justify-content#Browser_compatibility
+@mixin fake-center-horizontal {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+@mixin collapsible($default-display) {
+  &[aria-hidden="true"] {
+    visibility: hidden;
+    @extend %transition-opaque;
+  }
+
+  &[aria-hidden="false"] {
+    visibility: visible;
+    @extend %transition-not-opaque;
+  }
+
+  &:focus {
+    display: $default-display;
+  }
+}
+
+@mixin dropdown(
+  $arrow-color: $color-light-grey,
+  // The `navbar-margin-horizontal` property is divided by two since
+  // the right edge of the dropdown is exactly in half of the margin.
+  $right-edge-position: $navbar-element-size + ($navbar-margin-horizontal / 2),
+  $width: 250px,
+  $background-color: $color-light-grey
+) {
+  $arrow-size: 12px;
+  $dropdown-margin-vertical: 10px;
+
+  top: $navbar-height-mobile - $dropdown-margin-vertical;
+  border-radius: $border-radius-base;
+  background: $background-color;
+
+  @include collapsible($default-display: block);
+  @include box-shadow($color: $user-dropdown-shadow-color);
+
+  @extend %collapsible-element;
+
+  // User dropdown arrow pointing at the middle of Navbar user-avatar
+  &::before {
+    @mixin top-arrow-x-translation ($offset-right) {
+      right: (-$arrow-size / 2) + $offset-right;
+    }
+
+    transform: rotate(-45deg);
+    background: $arrow-color;
+    content: '';
+    z-index: $z-index-dropdown-arrow;
+
+    @include equal-sizes($arrow-size);
+    @include position(
+      $position: absolute,
+      $top: (-$arrow-size / 4)
+    );
+    @include top-arrow-x-translation(
+      $offset-right:
+        $navbar-element-size +
+        // The property is divided by two since we want to place the arrow in
+        // the middle of the element.
+        ($navbar-element-size / 2) +
+        $hamburger-width +
+        $offset-base +
+        $navbar-margin-horizontal-mobile
+    );
+
+    @media only screen and #{$medium} {
+      @include top-arrow-x-translation(
+        $offset-right:
+          ($navbar-element-size / 2) +
+          // The property is divided by two since the right edge of the dropdown
+          // is exactly in half of the margin.
+          ($navbar-margin-horizontal / 2)
+      );
+    }
+  }
+
+  ul {
+    padding: 0;
+    border-radius: 0 0 $border-radius-base $border-radius-base;
+    background: $color-light-grey;
+    overflow: hidden;
+  }
+
+  li {
+    display: flex;
+    height: 50px;
+    border-top: 1px solid $color-grey;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      text-decoration: none;
+
+      @extend %font-montserrat-regular;
+    }
+
+    &:hover {
+      background: $user-dropdown-bg-hover;
+    }
+
+    &:active {
+      background: $user-dropdown-bg-active;
+    }
+  }
+
+  @media only screen and #{$medium} {
+    right: $right-edge-position;
+    left: initial;
+    min-width: $width;
+  }
+}
+
+%collapsible-element {
+  z-index: $z-index-overlay;
+
+  @include position(
+    $position: absolute,
+    $right: $navbar-padding-horizontal-mobile,
+    $left: $navbar-padding-horizontal-mobile
+  );
+}
+
+@mixin hr(
+  $color: $color-lightgrey-text
+) {
+
+  &::after {
+    display: block;
+    width: 100%;
+    height: 0;
+    margin: 10px auto;
+    border: 1px solid $color;
+    content: '';
+  }
+}
+
+@mixin divider(
+  $width: 100%,
+  $margin: ($offset-base / 2) 0 0 0,
+  $border-color: $color-black,
+  $opacity: 0.1
+) {
+  @include hr;
+
+  &::after {
+    width: $width;
+    margin: $margin;
+    border-color: rgba($border-color, $opacity);
+  }
+}
+
+@mixin item-divider() {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba($color-black, 0.06);
+}
+
+%cursor-pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+%border-round {
+  border-radius: 50%;
+}
+
+%hover-regular {
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+%hardware-accelerated {
+  transform: translate3d(0, 0, 0);
+}
+
+%section-title {
+  margin: 0;
+  font-size: $font-size-desktop-big;
+
+  @extend %font-bebasneue-bold;
+}
+
+%no-shrink {
+  display: flex;
+  flex-shrink: 0;
+}
+
+@import 'utilities/triangles';

@@ -1,0 +1,70 @@
+.exercise-aside-wrapper {
+  position: relative;
+  flex-direction: column;
+  display: none;
+
+  @media only screen and #{$medium} {
+    display: flex;
+  }
+}
+
+.exercise-preview {
+  background-image: url('/assets/images/icons/preview.svg');
+  background-position: calc(50% - 25px) center; // half of a button 50px pls
+  background-repeat: no-repeat;
+
+  iframe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    flex-grow: 1;
+  }
+}
+
+.exercise-preview,
+.exercise-video {
+  background-color: #E5E5E5;
+  display: flex;
+}
+
+.exercise-video {
+////  background-color: #646896;
+//  position: relative;
+//
+//  &::before {
+//    z-index: 2;
+//    content: '';
+//    display: block;
+//    position: absolute;
+//
+//    @extend %absolute-center;
+//
+//    width: 68px;
+//    height: 48px;
+//
+//    background-image: url('/assets/images/icons/yt-btn.svg');
+//    background-position: center;
+//    background-size: contain;
+//    background-repeat: no-repeat;
+//    pointer-events: none;
+//  }
+}
+
+.videoframe {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+//  opacity: 0.15;
+}
+
+//.exercise-video.maximized::after,
+.maximized iframe {
+  position: absolute;
+  width: calc(100% - 50px);
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}

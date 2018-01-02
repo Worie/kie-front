@@ -1,0 +1,138 @@
+.fold-button {
+  max-width: 50px;
+  min-width: 50px;
+  height: 100%;
+  background: $color-grey;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.05);
+  order: 1; // hacky, todo. Iframe is appended to the preview section, so i simply change the order so fold button will be after that.
+  border: none;
+//  outline-color: $color-green;
+  position: relative;
+  transition: 0.2s background linear;
+  display: none;
+
+  @media only screen and #{$medium} {
+    display: block;
+  }
+
+  span {
+    // rotated button text. reconsider
+    transform: rotate(-90deg);
+
+    max-height: 50px; //button width. its rotated so we set its height
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+
+    color: $color-lightgrey-text;
+    font-size: 1.5em;
+
+    @extend %font-bebasneue-bold;
+  }
+}
+
+#spawnWindow {
+  $button-size: 32px;
+
+  display: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media only screen and #{$medium} {
+    display: block;
+  }
+
+  position: absolute;
+  top: 5px;
+  right: 55px; // sidebutton width + 5px offset
+  z-index: 5;
+
+  border: 2px solid #AFB7D0;
+  box-sizing: border-box;
+//  outline-color: $color-green;
+
+  background: #EEF2F6;
+  background-image: url('/assets/images/icons/new-window.svg');
+  background-size: ($button-size / 2);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include equal-sizes(32px);
+}
+
+.fold-button:hover {
+  cursor: pointer;
+  background: #F7FBFF;
+}
+
+.folded iframe {
+  display: none;
+}
+
+.folded .fold-button {
+  background: #8991AA;
+
+  span {
+    color: #ffffff;
+  }
+
+//  &:hover {
+//    background: #F7FBFF;
+//    span {
+//      color: $color-lightgrey-text;
+//    }
+//  }
+}
+
+.exercise-aside-wrapper {
+  position: relative;
+  flex-direction: column;
+  display: none;
+
+  @media only screen and #{$medium} {
+    display: flex;
+  }
+}
+
+.exercise-preview {
+  background-image: url('/assets/images/icons/preview.svg');
+  background-position: calc(50% - 25px) center; // half of a button 50px pls
+  background-repeat: no-repeat;
+
+  iframe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.exercise-preview,
+.exercise-video {
+  background-color: #E5E5E5;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.videoframe {
+  width: 100%;
+  height: 100%;
+}
+
+//.exercise-video.maximized::after,
+.maximized iframe {
+  position: absolute;
+  width: calc(100% - 50px);
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}

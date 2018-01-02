@@ -1,0 +1,59 @@
+%video-base {
+  .title {
+    color: $color-purple-text;
+
+    @extend %section-title;
+  }
+}
+
+%video-hero {
+  height: 300px;
+  margin-bottom: $offset-base;
+
+  @extend %product-hero;
+
+  .hero-title {
+    margin-bottom: ($offset-base * 2);
+  }
+
+  @media only screen and #{$medium} {
+    height: 400px;
+    margin-bottom: ($offset-base * 2);
+    // To match the design provided, part of background-image on the
+    // medium resolution needs to hidden (right part of image not visible).
+    // It still needs to be align in right bottom corner, though.
+    background: {
+      image: url(bundle-asset('global/laptop-workspace-raw.svg'));
+      // There was a comment about this piece of code (background-position shorthand)
+      // https://bitbucket.org/functionite/koduje/pull-requests/76/sf-217-single-video-view/activity#comment-22220101
+      position: right -100% bottom 0;
+      size: 80% 100%;
+      repeat: no-repeat;
+    }
+
+    .hero-title {
+      margin-bottom: ($offset-base * 3);
+    }
+  }
+
+  @media only screen and #{$desktop} {
+    height: 500px;
+    background: {
+      position: 100% 0;
+      size: contain;
+    }
+  }
+}
+
+.video-landing {
+  @extend %video-base;
+
+  .video-hero {
+    @extend %video-hero;
+  }
+}
+
+.video-player {
+  width: 100%;
+  margin-bottom: $offset-base;
+}

@@ -1,0 +1,265 @@
+// TODO: Once SF-278 is ready, change all selectors to use class names instead of tag names
+
+%entry {
+  %colon {
+    &::after {
+      // Just fits. Makes colon to be next to the text, without additional spacing.
+      display: inline-block;
+      margin-left: -3px;
+      content: ':';
+    }
+  }
+
+  .entry {
+    &-name {
+      @extend %font-montserrat-bold;
+      @extend %colon;
+    }
+
+    &:last-child {
+      margin-bottom: $offset-base;
+    }
+  }
+}
+
+%single-order-details {
+  display: flex;
+  flex-direction: column;
+
+  @extend %entry;
+
+  .invoice {
+    position: relative;
+    margin-top: $offset-base;
+    font-size: $font-size-desktop-medium;
+    line-height: $font-size-desktop-medium;
+
+    &::before {
+      display: inline-block;
+      margin-right: 5px;
+      font-size: inherit;
+      content: $icon-download;
+      vertical-align: bottom;
+
+      @extend %font-material-design-icons;
+    }
+  }
+
+  .items-title {
+    margin-top: $offset-base;
+    margin-bottom: ($offset-base / 2);
+    color: $color-purple;
+    font-size: $font-size-mobile-big;
+
+    @media only screen and #{$medium} {
+      font-size: $font-size-desktop-big;
+    }
+
+    @extend %section-title;
+  }
+
+  .bought-items {
+    padding: ($offset-base / 3);
+    border-radius: $border-radius-large;
+    background: $color-grey;
+
+    th {
+      color: $color-purple;
+    }
+
+    tr,
+    th {
+      border-bottom: 1px solid $color-lightgrey-text;
+    }
+
+    tr:last-child {
+      border-bottom: none;
+    }
+
+    td:last-child,
+    th:last-child {
+      text-align: right;
+    }
+
+    td:first-child,
+    th:first-child {
+      text-align: left;
+    }
+
+    table {
+      width: 100%;
+      color: $color-grey-text;
+      text-align: center;
+    }
+  }
+}
+
+%orders-table-heading {
+  th {
+    $th-color: $color-silver;
+
+    color: $th-color;
+
+    a {
+      color: $th-color;
+    }
+  }
+}
+
+%orders-table-action-column {
+  td:nth-child(4) {
+    width: 100%;
+    height: auto;
+
+    @media only screen and #{$medium} {
+      width: 1px;
+      white-space: nowrap;
+    }
+  }
+
+  .actions {
+    width: 100%;
+
+    a:first-of-type {
+      display: none;
+
+      @media only screen and #{$medium} {
+        display: inline;
+      }
+    }
+
+    a {
+      width: 100%;
+
+      @include button-alternate(
+        $background-color-hover: $color-grey-bg,
+        $border-color: $color-grey-bg,
+        $text-color: $color-green,
+        $text-color-hover: $color-green
+      );
+
+      @media only screen and #{$medium} {
+        display: inline;
+        border: none;
+        background: none;
+      }
+    }
+
+    a:hover {
+      @media only screen and #{$medium} {
+        background: none;
+        color: rgba($anchor-color-base, $clickable-opacity-hover);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+%orders-table {
+  $row-height: 50px;
+
+  table {
+    width: 100%;
+    color: $color-purple;
+    text-align: left;
+
+    thead,
+    tr {
+      padding: 13px 0;
+      border-bottom: 1px solid $color-grey;
+      font-size: $font-size-desktop-small;
+
+      @extend %font-montserrat-regular;
+
+      @media only screen and #{$medium} {
+        height: $row-height;
+      }
+    }
+
+    thead {
+      display: none;
+
+      @media only screen and #{$medium} {
+        display: table-header-group;
+      }
+    }
+
+    tr {
+      display: block;
+
+      @media only screen and #{$medium} {
+        display: table-row;
+      }
+    }
+
+    tr:not(:last-of-type) {
+      margin-bottom: $offset-base;
+
+      @media only screen and #{$medium} {
+        margin-bottom: 0;
+      }
+    }
+
+    td {
+      display: flex;
+      height: $row-height;
+
+      @media only screen and #{$medium} {
+        display: table-cell;
+      }
+    }
+
+    td:not(.actions)::before {
+      $width: 100px;
+
+      display: inline-block;
+      min-width: $width;
+      max-width: $width;
+      color: $color-grey-text;
+      text-align: left;
+      content: attr(data-header);
+
+      @media only screen and #{$medium} {
+        display: none;
+      }
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @extend %orders-table-heading;
+    @extend %orders-table-action-column;
+  }
+}
+
+.profile {
+  .orders {
+    position: relative;
+
+    @extend %orders-table;
+
+    .details {
+      @extend %single-order-details;
+    }
+
+    .section-title {
+      margin-bottom: $offset-base;
+      color: $color-purple;
+      font-size: $font-size-mobile-big;
+
+      @media only screen and #{$medium} {
+        font-size: $font-size-desktop-big;
+      }
+    }
+  }
+
+  .order-list-anchor {
+    @include position(
+      $position: absolute,
+      $top: $offset-base,
+      $right: $offset-base
+    );
+  }
+}

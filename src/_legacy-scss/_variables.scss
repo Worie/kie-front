@@ -1,0 +1,122 @@
+// Material design icon values
+// See 'node_modules/material-design-iconic-font/scss/_icons.scss' if you want to use more of them.
+$icon-check: '\f26b';
+$icon-chevron-right: '\f2fb';
+$icon-download: '\f220';
+
+// Colors
+$color-black: #000000;
+$color-red: #ff0000;
+$color-purple: #696e9e;
+$color-purple-text: #61637f;
+$color-purple-bg: #646896;
+$color-purple-dark: #4c5183;
+$color-purple-light: #69709b;
+$color-green: #34b399;
+$color-light-grey: #fafafa;
+$color-light-grey-bg: #c7d1e2;
+$color-grey: #eef2f6;
+$color-grey-bg: #dbdde0;
+$color-grey-text: #8c92a5;
+$color-lightgrey-text: #afb7d0;
+$color-silver: #b8b8b8;
+$color-darkgrey-text: #393939;
+$color-white: #ffffff;
+$color-blue: #3a599a;
+$color-blue-bg: #003277;
+$color-gold: #f7cd45;
+
+$card-color-orange: #ffa000;
+$card-color-red: #d32f2f;
+
+// Base colors of specific elements.
+$anchor-color-base: $color-green;
+$button-color-base: $color-green;
+
+// Breakpoints
+$portrait: '(orientation: portrait)';
+$landscape: '(orientation: landscape)';
+$medium: '(min-width: 768px)';
+$desktop: '(min-width: 1024px)';
+
+// Legacy font-sizes. Always update to the current ones when you see a font-size variable without breakpoint mentioned.
+$font-size-smaller: 1rem;
+$font-size-small: 1.2rem;
+$font-size-medium: 1.3rem;
+$font-size-regular: 1.4rem;
+$font-size-big: 1.6rem;
+$font-size-bigger: 1.8rem;
+$font-size-huge: 2rem;
+$font-size-giant: 2.4rem;
+$font-size-gigantic: 3.2rem;
+$font-size-almost-enormous: 5rem;
+$font-size-enormous: 6rem;
+$font-size-mammoth: 8rem;
+
+// Current font-sizes for desktop/tablet
+$font-size-desktop-small: 1.3rem;
+$font-size-desktop-medium: 1.8rem;
+$font-size-desktop-big: 4.2rem;
+$font-size-desktop-huge: 6.4rem;
+
+// Current font-sizes for mobile
+$font-size-mobile-small: 1rem;
+$font-size-mobile-medium: 1.6rem;
+$font-size-mobile-big: 2.8rem;
+$font-size-mobile-huge: 3.6rem;
+
+// Variables
+$offset-base: 30px;
+
+$hero-padding-horizontal: ($offset-base * 3);
+$hero-padding-horizontal-medium: $offset-base;
+
+$border-radius-small: 3px !default;
+$border-radius-base: 4px !default;
+$border-radius-large: 6px !default;
+
+$button-width: 150px;
+$button-close-size: 50px;
+$button-mobile-width: 120px;
+$button-height: 50px;
+$button-padding: $offset-base;
+$button-border-size: 2px;
+
+$clickable-opacity-hover: 0.9;
+$clickable-opacity-active: 0.7;
+
+$navbar-height-medium: 50px;
+$navbar-height-mobile: $navbar-height-medium;
+$navbar-element-size: ($navbar-height-mobile / 2);
+
+$navbar-padding-horizontal: $hero-padding-horizontal;
+$navbar-padding-horizontal-mobile: ($offset-base / 2);
+$navbar-padding-horizontal-medium: $hero-padding-horizontal-medium;
+
+$navbar-margin-horizontal: 20px;
+$navbar-margin-horizontal-mobile: ($navbar-margin-horizontal / 2);
+
+$hamburger-width: 30px;
+
+$footer-legal-section-height: 120px;
+
+$user-dropdown-bg-active: $color-light-grey-bg;
+$user-dropdown-bg-hover: $color-grey;
+$user-dropdown-shadow-color: rgba($color-black, 0.2);
+
+$z-index-overlay: 100;
+$z-index-navbar: 10;
+$z-index-movie-item: 1;
+$z-index-dropdown-arrow: -1;
+
+$grid-columns-count: 12;
+
+$transition-time: 0.15s;
+
+$main-section-offset: 60px;
+$main-section-max-width: 1120px;
+
+$form-input-field-offset-bottom: 40px;
+
+$container-padding: 30px;
+$container-max-width-mobile: 450px;

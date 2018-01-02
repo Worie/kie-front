@@ -1,0 +1,56 @@
+.terms-of-service {
+  $margin: $offset-base / 2;
+
+  .rules {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: justify;
+
+    p,
+    li {
+      margin-bottom: $margin;
+    }
+
+    h1 {
+      font-size: $font-size-mobile-huge;
+    }
+
+    h2 {
+      font-size: $font-size-mobile-big;
+    }
+
+    h3 {
+      font-size: $font-size-mobile-medium;
+    }
+
+    @media only screen and #{$medium} {
+      h1 {
+        font-size: $font-size-desktop-huge;
+      }
+
+      h2 {
+        font-size: $font-size-desktop-big;
+      }
+
+      h3 {
+        font-size: $font-size-desktop-medium;
+      }
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0 $margin $margin 0;
+
+      @extend %section-title;
+    }
+  }
+
+  ul,
+  ol,
+  p {
+    margin-top: 0;
+  }
+}

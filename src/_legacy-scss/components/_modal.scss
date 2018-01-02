@@ -1,0 +1,139 @@
+.modal {
+  @include collapsible($default-display: flex);
+
+  @extend %collapsible-element;
+
+  @media only screen and #{$medium} {
+    right: initial;
+    left: initial;
+    cursor: initial;
+  }
+}
+
+.modal-mobile {
+  $padding: 20px;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba($color-black, 0.5);
+  cursor: pointer;
+
+  @include position(
+    $position: fixed,
+    $top: 0,
+    $right: 0
+  );
+
+  .modal-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    padding: 0 $padding;
+    background: $color-purple;
+    color: $color-white;
+    font-size: ($font-size-enormous / 2);
+
+    @include position(
+      $position: fixed,
+      $top: 0,
+      $left: 0
+    );
+
+    @extend %font-bebasneue-bold;
+
+    @media only screen and #{$medium} {
+      display: none;
+    }
+  }
+
+  @media only screen and #{$medium} {
+    position: static;
+    background: none;
+  }
+}
+
+.modal-popup {
+  background-color: rgba($color-black, 0.5);
+
+  @include equal-sizes(100%);
+  @include position(
+    $position: absolute,
+    $left: 0,
+    $right: 0,
+    $top: 0,
+    $bottom: 0
+  );
+
+  .popup {
+    $padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    margin: auto 20px;
+    padding: $padding;
+    padding-top: calc(2rem + 20px);
+    box-shadow: none;
+
+    @include position(
+      $position: fixed,
+      $left: 0,
+      $right: 0,
+      $top: 0,
+      $bottom: 0
+    );
+
+    @media only screen and #{$medium} {
+      width: 50%;
+      margin: auto;
+    }
+
+    header {
+      margin-right: $button-close-size;
+      font-size: $font-size-gigantic;
+
+      @extend %font-bebasneue-bold;
+
+      @media only screen and #{$medium} {
+        font-size: $font-size-almost-enormous;
+      }
+    }
+
+    p {
+      margin-bottom: auto;
+    }
+
+    .popup-close {
+      @include position(
+        $position: absolute,
+        $right: $padding,
+        $top: $padding
+      );
+
+      @extend %cross-close;
+    }
+  }
+
+  .popup-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      max-width: 50%;
+    }
+
+    .button.cta {
+      min-width: 40px;
+      margin-right: auto;
+
+      @media only screen and #{$medium} {
+        min-width: $button-width;
+      }
+    }
+  }
+}

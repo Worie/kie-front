@@ -1,0 +1,48 @@
+.user-dropdown {
+  @include dropdown(
+    $arrow-color: $color-green,
+    $background-color: transparent
+  );
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 95px;
+    padding: 20px;
+    border-radius: $border-radius-base $border-radius-base 0 0;
+    background: $color-green;
+  }
+
+  .logout-anchor {
+    color: $color-red;
+  }
+
+  .logout-confirmation-anchor {
+    background: $color-red;
+    color: $color-white;
+  }
+
+  .anchor-hidden {
+    display: none;
+  }
+
+  .user-dropdown-name {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    font-size: $font-size-big;
+
+    @extend %font-montserrat-bold;
+  }
+
+  .user-dropdown-mail {
+    font-size: $font-size-small;
+
+    @extend %font-montserrat-regular;
+
+    a {
+      color: $color-white;
+    }
+  }
+}

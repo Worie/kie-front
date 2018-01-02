@@ -1,0 +1,32 @@
+body:not(.legacy) {
+  position: relative;
+  padding-top: $inline-entity-height-mobile * 2 + $padding-navbar;
+  background: #E5E5E5;
+
+
+  // Reconsider rules below:
+
+  // set space for navbar (binded with navbar height for this viewport)
+  @media only screen and #{$medium} {
+    padding-top: $inline-entity-height-medium + $offset-base;
+  }
+
+  // set space for navbar (binded with navbar height for this viewport)
+  @media only screen and #{$widescreen} {
+    padding-top: $inline-entity-height-wide + $offset-base;
+  }
+}
+
+*:focus {
+  outline-color: yellow;
+  outline-width: 7px !important;
+  outline-offset: -5px;
+  transition: 0.3s outline-offset ease-in-out;
+}
+
+.a-input--success,
+.a-input--error {
+  &:focus {
+    outline-color: inherit;
+  }
+}

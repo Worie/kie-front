@@ -1,0 +1,44 @@
+.motivator {
+  margin-bottom: $offset-base;
+
+  @media only screen and #{$medium} {
+    min-height: 380px;
+    background: {
+      image: url(bundle-asset('global/motivator.png'));
+      repeat: no-repeat;
+      size: 60% 100%;
+      position: center right;
+    }
+  }
+
+  @media only screen and #{$desktop} {
+    background-size: contain;
+  }
+
+  .content {
+    $margin-bottom: $offset-base;
+
+    @extend %grid-5;
+
+    .title {
+      margin-bottom: $margin-bottom;
+      font-size: $font-size-enormous;
+
+      @extend %font-bebasneue-bold;
+    }
+
+    p:not(:last-child) {
+      margin-bottom: $margin-bottom;
+    }
+
+    @media only screen and #{$medium} {
+      @include grid(
+        $size: 3
+      );
+    }
+
+    @media only screen and #{$desktop} {
+      min-width: 400px;
+    }
+  }
+}

@@ -1,0 +1,178 @@
+@at-root {
+  $offset: $offset-base;
+
+  %container {
+    display: flex;
+    margin-bottom: $offset;
+    padding: $offset-base;
+    border-radius: $border-radius-small;
+    background: $color-white;
+    color: $color-purple-text;
+    overflow: hidden;
+
+    @include box-shadow;
+
+    @media only screen and #{$desktop} {
+      padding: ($offset-base * 2);
+    }
+  }
+
+  .container {
+    // Every container that is not inside group wrapper has to have its own margins on the mobile.
+    margin: 0 ($offset / 2) $offset ($offset / 2);
+
+    @extend %container;
+
+    @media only screen and #{$medium} {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    &.flashes {
+      flex-direction: row;
+      margin-top: $offset-base;
+      background-color: $color-gold;
+      color: $color-purple;
+
+      .flash-message {
+        display: flex;
+      }
+
+      @extend %main-container;
+    }
+  }
+
+  .group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    // Set padding on mobile
+    padding: ($offset / 2);
+    padding-top: 0;
+
+    @media only screen and #{$medium} {
+      // On tablet and up groups shouldn't have padding
+      padding: 0;
+    }
+
+    @media only screen and #{$desktop} {
+      flex-wrap: nowrap;
+    }
+
+    .container {
+      // Containers inside groups do not need side margins as group has it's own padding equivalent.
+      margin-right: 0;
+      margin-left: 0;
+
+      @media only screen and #{$medium}{
+        margin-left: $offset;
+
+        // Every container inside a group that is first should not have left margin
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+    }
+  }
+}
+
+%main-container {
+  $padding-base: $offset-base;
+
+  max-width: $main-section-max-width;
+  margin: 0 auto;
+  padding: 0;
+
+  @media only screen and #{$medium} {
+    padding: $padding-base;
+  }
+}
+
+.main {
+  margin-bottom: $offset-base;
+  padding-top: $offset-base;
+
+  @extend %main-container;
+
+  @media only screen and #{$medium} {
+    padding-top: ($offset-base * 2);
+  }
+
+  .breadcrumbs {
+    li,
+    a {
+      color: $color-purple-text;
+    }
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  color: $color-purple-text;
+  font-size: $font-size-desktop-small;
+  list-style: none;
+
+  li {
+    $offset: 0.5rem;
+
+    padding-right: $offset;
+    text-transform: uppercase;
+
+    &.disabled {
+      color: $color-lightgrey-text;
+    }
+
+    &:not(.last)::after {
+      padding: 0 $offset;
+      content: '>';
+    }
+  }
+
+  @extend %font-montserrat-bold;
+}
+
+.user-photo {
+  flex-shrink: 0;
+  background: {
+    color: $color-white;
+    image: url(bundle-asset('users/default_avatar.png'));
+    repeat: no-repeat;
+    position: center;
+    size: contain;
+  }
+
+  @extend %border-round;
+}
+
+.quote {
+  font-size: $font-size-desktop-medium;
+
+  &::before {
+    display: inline;
+    //  „
+    content: '\201e';
+  }
+
+  &::after {
+    //  ”
+    display: inline;
+    content: '\201d';
+  }
+}
+
+body {
+  position: relative;
+  padding-top: $navbar-height-mobile;
+  background: #E5E5E5;
+
+  @media only screen and #{$medium} {
+    padding-top: $navbar-height-medium;
+  }
+}
+
+.section-title {
+  @extend %section-title;
+}

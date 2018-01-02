@@ -1,0 +1,320 @@
+.exercise {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  transition: 0.3s filter linear;
+  transition-property: filter, opacity;
+  will-change: filter;
+
+  *::selection,
+  .CodeMirror-selected {
+    background: $color-green !important;
+    color: $color-white !important;
+  }
+
+  @media only screen and #{$medium} {
+    padding-bottom: 0;
+  }
+
+  &-content,
+  &-preview,
+  &-video {
+//    position: fixed;
+    box-sizing: border-box;
+  }
+
+  &.show-preview-area {
+    .exercise-aside-wrapper {
+      display: block;
+      width: 100vw;
+      height: calc(100vh - 100px);
+    }
+
+    .exercise-video {
+      display: none;
+    }
+
+    .exercise-preview {
+      height: 100%;
+    }
+
+    .exercise-content-wrapper {
+      display: none;
+    }
+  }
+
+  &.show-video-area {
+    .exercise-aside-wrapper {
+      display: block;
+      width: 100vw;
+      height: calc(100vh - 100px);
+    }
+
+    .exercise-preview {
+      display: none;
+    }
+
+    .exercise-video {
+      height: 100%;
+    }
+
+    .exercise-content-wrapper {
+      display: none;
+    }
+  }
+
+  @media only screen and #{$medium} {
+    &.show-video-area,
+    &.show-preview-area {
+      .exercise-aside-wrapper,
+      .exercise-content-wrapper,
+      .exercise-video,
+      .exercise-preview {
+        display: block;
+        height: calc(100vh - 50px);
+      }
+    }
+
+  }
+
+  a {
+    font-size: inherit;
+    font-weight: 600;
+  }
+}
+
+
+.primary-header {
+  color: #535573;
+  font-size: 2.5em;
+
+  margin: 0 $offset-base;
+  margin-top: $offset-base;
+  line-height: 1em;
+
+//  margin-top: $offset-base * 3;
+//
+//  &:first-child {
+//    margin-top: $offset-base;
+//  }
+
+  @media only screen and #{$medium} {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @extend %font-bebasneue-bold;
+}
+
+.secondary-header {
+  color: #AFB7D0;
+  font-size: 1.9em;
+  line-height: 1em;
+  margin: 0 $offset-base;
+  margin-top: $offset-base;
+
+  @media only screen and #{$medium} {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @extend %font-bebasneue-bold;
+}
+
+#hud {
+  display: none;
+}
+
+.gutter.gutter-horizontal {
+
+}
+
+.exercise-aside-wrapper,
+.exercise-preview {
+  overflow: hidden;
+}
+
+.exercise-content-wrapper {
+  padding: 60px 0;
+  flex-grow: 1;
+  height: calc(100vh - 100px);
+  overflow-x: hidden;
+
+  a {
+    color: $color-green;
+  }
+}
+
+.exercise-content-wrapper,
+.exercise-aside-wrapper {
+  @media only screen and #{$medium} {
+    height: calc(100vh - 50px); // - padding top -navbar
+    width: 50vw; // - aside - button size
+  }
+}
+
+
+.exercise.preview-hidden.video-hidden {
+  .exercise-content-wrapper {
+    flex-grow: 1;
+  }
+
+  .exercise-aside-wrapper {
+    width: 50px !important; // we need to override inline styles given by split. in pure css solution i guess thats the best way.
+  }
+}
+
+%text-marker {
+  display: inline-block;
+  border: 1px solid #AFB7D0;
+  border-radius: 2px; //wild guess
+  background: #EEF2F6;
+  color: #535573;
+  margin: 3px 2px; // just fits
+  padding: 0 3px; // just fits
+
+  @extend %font-source-code-pro-regular;
+}
+
+.code-fragment {
+  @extend %text-marker;
+}
+
+.explainable {
+  border-color: $color-green;
+  border-width: 2px;
+  position: relative;
+  font-size: inherit;
+//  outline-color: #34b399;
+
+  @extend %text-marker;
+
+  &::after {
+    $size: 15px;
+
+    position: absolute;
+    top: -($size / 2);
+    right: -($size / 2);
+    border-radius: 50%;
+    color: $color-white;
+    background: $color-green;
+    content: '?';
+    font-size: $size * 2/3;
+    line-height: $size;
+    text-align: center;
+    display: inline-block;
+
+    @include equal-sizes($size);
+  }
+
+  &:hover {
+    background: $color-green;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.mobile-pagination {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  background: #EEF2F6;
+  z-index: 999;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.15);
+
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    color: $color-purple;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin-top: 2px;
+
+    @extend %font-bebasneue-bold;
+  }
+
+  button {
+    border: none;
+    background: transparent;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+    text-align: center;
+    opacity: 0.5;
+  }
+
+  li.active {
+    opacity: 1;
+  }
+
+  %icon {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0 auto 5px;
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .preview-icon::before {
+    background-image: url('/assets/images/icons/eye-icon.svg');
+
+    @extend %icon;
+  }
+
+  .read-icon::before {
+    background-image: url('/assets/images/icons/book-icon.svg');
+
+    @extend %icon;
+  }
+
+  .video-icon::before {
+    background-image: url('/assets/images/icons/movie-player.svg');
+
+    @extend %icon;
+  }
+
+  @media only screen and #{$medium} {
+    display: none;
+  }
+}
+
+.blurred {
+  filter: blur(3px);
+  opacity: 0.6;
+}
+
+// class that is added once the exercise is scrolled
+.exercise-scroll {
+  .CodeMirror-scroll {
+    pointer-events: none;
+  }
+}
+
+.exercise-content-wrapper.snippet-scroll {
+  pointer-events: none;
+}
+
+#disqus_thread {
+  margin: ($offset-base * 2.5) 0;
+}

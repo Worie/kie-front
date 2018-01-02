@@ -1,0 +1,88 @@
+.main.register {
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and #{$medium} {
+      max-width: 50%;
+      margin: 0 auto;
+    }
+
+    .form-input-field,
+    .agreement-content {
+      margin-bottom: $form-input-field-offset-bottom;
+    }
+  }
+}
+
+.register-header {
+  display: block;
+  margin-bottom: $offset-base;
+  color: $color-purple-text;
+  font-size: $font-size-desktop-big;
+
+  @extend %font-bebasneue-bold;
+}
+
+.facebook-connect {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    @media only screen and #{$medium} {
+      margin: 0 auto;
+
+      @include grid(
+        $size: ($grid-columns-count / 8)
+      );
+    }
+  }
+
+  .section-title {
+    flex-basis: 100%;
+    margin-bottom: $offset-base;
+    font-size: $font-size-mobile-big;
+
+    @media only screen and #{$medium} {
+      font-size: $font-size-desktop-big;
+    }
+  }
+
+  .photo-wrapper {
+    $photo-size: 100px;
+
+    justify-content: space-around;
+    min-width: $photo-size;
+    margin-bottom: $offset-base;
+
+    @include grid(
+      $size: ($grid-columns-count / 2)
+    );
+
+    .user-photo {
+      @include equal-sizes($photo-size);
+    }
+  }
+
+  &-form {
+    width: 100%;
+    padding: $offset-base;
+    padding-bottom: 0;
+
+    // Commented out until 255 is ready. Also added width: 100%. Revert this commit if possible, istead do it manually.
+    //@extend %grid-10;
+
+    .form-input-field,
+    .agreement-content {
+      margin-bottom: $offset-base;
+    }
+
+    // Nasty selectors. Gonna be fixed when SF-278 is ready
+    // This is right alignment for submit-button
+    > div:last-of-type {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

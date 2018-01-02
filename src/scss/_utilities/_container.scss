@@ -1,0 +1,73 @@
+// TODO: Change all rgba notations to plain hex in vars.
+
+%u-container-coloring {
+  &--info {
+    background-color: $color-white;
+
+    .a-heading {
+      color: $color-purple-dark;
+    }
+
+    .a-heading--secondary,
+    .a-heading--tertiary {
+      color: rgba($color-purple-dark, 0.5);
+    }
+
+    .a-paragraph,
+    .m-text-list {
+      color: rgba($color-purple-dark, 0.6);
+    }
+
+//    .m-text-list li::before {
+//      color: $color-purple-dark;
+//    }
+  }
+
+  &--alt {
+    background-color: $color-grey;
+
+    .a-heading {
+      color: $color-purple-dark;
+    }
+
+    .a-heading--secondary,
+    .a-heading--tertiary {
+      color: rgba($color-purple-dark, 0.75);
+    }
+
+    .a-paragraph,
+    .m-text-list {
+      color: rgba($color-purple-dark, 0.7);
+    }
+
+//    .m-text-list li::before {
+//      color: $color-purple-dark;
+//    }
+  }
+
+  &--cta {
+    background-color: $color-purple;
+
+    .a-heading {
+      color: $color-white;
+    }
+
+    .a-heading--secondary,
+    .a-heading--tertiary {
+      color: rgba($color-white, 0.75);
+    }
+
+    .a-paragraph,
+    .m-text-list {
+      color: rgba($color-white, 0.6);
+    }
+
+    .a-button--tertiary {
+      color: $color-white;
+    }
+
+//    .m-text-list li::before {
+//      color: $color-white;
+//    }
+  }
+}

@@ -1,0 +1,76 @@
+
+@import '_utilities/icons';
+@import '_utilities/variables';
+@import '_utilities/fonts';
+@import '_utilities/container';
+
+%absolute-center-y {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+%absolute-center-x {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+%absolute-center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+%sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: none;
+}
+
+.sr-only {
+  @extend %sr-only;
+}
+
+%single-bg-image-common {
+  background-position: center;
+  background-repeat: no-repeat;
+  //check if every other component that uses it looks good. if so, remove commended lines
+//  background-size: contain;
+}
+
+@mixin single-bg-image($src) {
+  background-image: url('/assets/images/' + $src);
+
+  @extend %single-bg-image-common;
+}
+
+@mixin hover {
+  .no-touch & {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin square($size) {
+  height: $size;
+  width: $size;
+}
+
+@mixin round($size) {
+  border-radius: 50%;
+  @include square($size);
+}

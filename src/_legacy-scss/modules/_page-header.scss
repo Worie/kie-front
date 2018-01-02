@@ -1,0 +1,112 @@
+@import 'page_header/profile';
+@import 'page_header/homepage';
+
+.page-header {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  overflow-x: hidden;
+  background: {
+    color: $color-purple;
+    size: 65%;
+  }
+
+  .wrapper {
+    width: $main-section-max-width;
+    padding: $offset-base;
+
+    @extend %main-container;
+  }
+
+  .breadcrumbs {
+    color: $color-white;
+
+    a {
+      color: $color-white;
+    }
+
+    &.product {
+      margin-bottom: $offset-base;
+    }
+  }
+
+  &-content {
+    width: 100%;
+    padding: ($offset-base / 2);
+
+    @extend %main-container;
+
+    @media only screen and #{$medium} {
+      padding: $offset-base;
+    }
+  }
+
+  &.product {
+    padding: 0;
+
+    &.webinar {
+      min-height: 350px;
+    }
+  }
+
+  @media only screen and #{$medium} {
+    min-height: 220px;
+  }
+}
+
+.page-title {
+  max-width: 50%;
+  margin: 0;
+  color: $color-white;
+  font-size: $font-size-desktop-huge;
+  text-transform: uppercase;
+
+  @extend %font-bebasneue-bold;
+  @extend %grid-6;
+
+  &.product {
+    max-width: 100%;
+    margin-bottom: ($offset-base / 2);
+    font-size: $font-size-desktop-huge;
+
+    @extend %grid-12;
+  }
+
+  @media only screen and #{$medium} {
+    padding-top: 5px;
+
+    &.homepage {
+      margin-top: $offset-base;
+      margin-bottom: 0;
+      font-size: ($font-size-desktop-big * 2);
+    }
+  }
+
+  &::selection {
+    background: $color-purple-text;
+  }
+}
+
+.page-subtitle {
+  margin: auto 0;
+  color: $color-lightgrey-text;
+  font-size: $font-size-desktop-medium;
+  line-height: 1.3;
+  text-transform: uppercase;
+
+  @extend %grid-6;
+  @extend %font-montserrat-regular;
+
+  &.homepage {
+    margin: 0;
+    font-size: $font-size-desktop-medium;
+  }
+
+  &.product {
+    max-width: 100%;
+    font-size: $font-size-mobile-medium;
+    text-transform: initial;
+
+    @extend %grid-12;
+  }
+}

@@ -1,0 +1,88 @@
+.product-testimonials {
+  $photo-size: 40px;
+  $dot-size-base: 12px;
+  $dot-size-active: 16px;
+  $dot-offset: 10px;
+
+  .author {
+    display: flex;
+    align-items: center;
+  }
+
+  .author-photo {
+    margin-right: ($offset-base / 2);
+
+    @include equal-sizes($photo-size);
+
+    @extend %border-round;
+  }
+
+  .author-name {
+    color: $color-purple-light;
+
+    @extend %font-montserrat-regular;
+  }
+
+  &-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      position: relative;
+      margin-right: $dot-offset;
+      padding: 0;
+      background: $color-lightgrey-text;
+      cursor: pointer;
+
+      @include equal-sizes($dot-size-base);
+
+      @extend %border-round;
+    }
+
+    button {
+      position: absolute;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 0;
+      line-height: 0;
+
+      @include equal-sizes($dot-size-active);
+    }
+
+    .slick-active {
+      background: $color-purple-light;
+
+      @include equal-sizes($dot-size-active);
+    }
+  }
+
+  .slick-slide {
+    outline: none;
+  }
+}
+
+.product-testimonial {
+  position: relative;
+  margin: 0;
+  margin-bottom: ($offset-base * 2);
+  padding-left: ($offset-base * 3);
+
+  &::before {
+    color: $color-purple-light;
+    font-size: ($font-size-desktop-huge * 2);
+    line-height: 1;
+    content: '“';
+
+    @include position(
+      $position: absolute,
+      $left: 0
+    );
+
+    @extend %font-bebasneue-bold;
+  }
+}

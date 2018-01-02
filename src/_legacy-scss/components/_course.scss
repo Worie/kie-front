@@ -1,0 +1,141 @@
+@mixin course(
+  $courses-in-row: 3,
+  $course-height: 150px,
+  $course-margin-left: 30px,
+  $course-margin-bottom: 20px
+) {
+  $courses-in-row-medium: ($courses-in-row - 1);
+
+  height: $course-height;
+  margin: 0;
+  margin-bottom: $course-margin-bottom;
+  padding: 0;
+  border-radius: $border-radius-large;
+
+  @extend %grid-4;
+  @extend %transition-scale-regular;
+
+  &:hover {
+    @extend %transition-scale-up;
+  }
+
+  @media only screen and #{$medium} {
+    margin-left: $course-margin-left;
+
+    @include grid(
+      $size: $courses-in-row-medium,
+      $margin: $course-margin-left
+    );
+
+    &:nth-child(#{$courses-in-row-medium}n + 1) {
+      margin-left: 0;
+    }
+  }
+
+  @media only screen and #{$desktop} {
+    margin-left: $course-margin-left;
+
+    @include grid(
+      $size: $courses-in-row,
+      $margin: $course-margin-left
+    );
+
+    // The selector for medium resolution needs to be overriden.
+    // margin-left at the beggining of this media query isn’t strong enough
+    // to override the nth-child selector inside medium media query,
+    // so for now it is overriden this way.
+    &:nth-child(#{$courses-in-row-medium}n + 1) {
+      margin-left: $course-margin-left;
+    }
+
+    &:nth-child(#{$courses-in-row}n + 1) {
+      margin-left: 0;
+    }
+  }
+
+  &-preview {
+    position: relative;
+    flex-shrink: 0;
+
+    @include equal-sizes($course-height);
+
+    img {
+      position: absolute;
+
+      @include equal-sizes($course-height);
+    }
+
+    .movie-preview-bg {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .notification {
+      $notification-size: 50px;
+
+      background: $color-green;
+      color: $color-white;
+      font-size: $font-size-mobile-big;
+      line-height: $notification-size;
+      text-align: center;
+
+      @include equal-sizes($notification-size);
+      @include position(
+        $position: absolute,
+        $bottom: 10px,
+        $left: 15px
+      );
+
+      @extend %border-round;
+      @extend %font-lato-bold;
+    }
+  }
+
+  &-title {
+    margin: 0;
+    font-size: $font-size-desktop-small;
+
+    @include hr;
+
+    @extend %font-montserrat-regular;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: ($offset-base / 3);
+
+    @extend %font-montserrat-light;
+  }
+
+  &-participants {
+    align-self: flex-end;
+    margin: 0;
+    margin-top: auto;
+    font-size: $font-size-mobile-small;
+  }
+
+  &-anchor {
+    z-index: $z-index-movie-item;
+
+    @include position(
+      $position: absolute,
+      $top: 0,
+      $bottom: 0,
+      $left: 0,
+      $right: 0
+    );
+  }
+
+  &-duration {
+    margin: 0;
+    font-size: $font-size-desktop-small;
+  }
+
+  @media only screen and #{$medium} {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

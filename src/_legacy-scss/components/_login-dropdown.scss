@@ -1,0 +1,25 @@
+.login-dropdown {
+  $button-size: 50px;
+
+  padding: $offset-base;
+
+  @include dropdown($width: 335px);
+
+  @extend %login-form;
+
+  .form {
+    .error:not(input) {
+      background: $color-light-grey;
+    }
+  }
+
+  @media only screen and #{$medium} {
+    &::before {
+      display: block;
+    }
+
+    .button.cta {
+      min-width: $button-width;
+    }
+  }
+}

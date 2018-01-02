@@ -1,0 +1,68 @@
+// Colors
+$color-black: #000000;
+$color-white: #ffffff;
+$color-yellow: #f7cd45;
+$color-grey: #eef2f6;
+$color-red: #eb5757;
+
+$color-purple-dark: #61637f;
+$color-purple: #696e9e;
+$color-purple-light: #a5aad8;
+
+$color-green-dark: #2c8c78;
+$color-green: #39b399;
+$color-green-light: #57bfa9;
+
+// Breakpoints
+$portrait: '(orientation: portrait)';
+$landscape: '(orientation: landscape)';
+$mobile-only: '(max-width: 768px)';
+$medium: '(min-width: 768px)';
+$desktop: '(min-width: 1024px)';
+$widescreen: '(min-width: 1920px)';
+
+
+$mobile-entity-scale: 0.7;
+$medium-entity-scale: 0.85;
+$widescreen-entity-scale: 1.2;
+
+$label-font-size: 1.2rem;
+$label-line-height: 1.4rem;
+
+$heading-font-size-big: 3.6rem;
+$heading-line-height-big: 4.3rem;
+
+$heading-font-size-regular: 2.6rem;
+$heading-line-height-regular: 3.2rem;
+
+$heading-font-size-small: 2.3rem;
+$heading-line-height-small: 2.8rem;
+
+$paragraph-font-size: 1.4rem;
+$paragraph-line-height: 2.2rem;
+
+$button-font-size: 2.1rem;
+
+$font-color-primary: $color-purple-dark;
+$font-color-secondary: rgba($color-purple, 0.5);
+
+$font-color-alt-primary: $color-white;
+$font-color-alt-secondary: rgba($color-purple, 0.5);
+
+
+$bg-color-primary: $color-white;
+$bg-color-secondary: $color-grey;
+$bg-color-dark: $color-purple;
+
+$offset-base: 20px;
+
+$inline-entity-height-mobile: 40px;
+$inline-entity-height-medium: 50px;
+$inline-entity-height-wide: 60px;
+
+$container-max-width: 1200px;
+
+$z-index-navbar: 10;
+
+$padding-navbar: $offset-base / 2;
+

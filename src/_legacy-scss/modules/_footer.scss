@@ -1,0 +1,198 @@
+@at-root {
+  $legal-section-height: $footer-legal-section-height;
+
+  %page-footer {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 0 $offset-base;
+
+    @extend %page-footer-social;
+
+    @media only screen and #{$medium} {
+      padding: 0;
+    }
+
+    a {
+      font-size: $font-size-small;
+
+      @extend %href;
+    }
+
+    .title {
+      color: $color-lightgrey-text;
+      font-size: $font-size-big;
+
+      @extend %section-title;
+    }
+
+    // The HR equivalent of the footer.
+    &::before {
+      width: 100%;
+      height: 1px;
+      margin-bottom: $offset-base;
+      background: $color-lightgrey-text;
+      content: '';
+
+      @include position(
+        $position: absolute,
+        $bottom: $legal-section-height,
+        $right: 0
+      );
+
+      @media only screen and #{$medium} {
+        margin-bottom: 0;
+      }
+
+    }
+  }
+
+  %page-footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 215px;
+
+    @extend %main-container;
+
+    @media only screen and #{$desktop} {
+      flex-direction: row;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+
+      @media only screen and #{$medium} {
+        justify-content: flex-start;
+        margin-bottom: $offset-base;
+      }
+    }
+
+    .page-footer-links {
+      $mobile-width: 50%;
+
+      display: flex;
+      flex-basis: $mobile-width;
+      flex-direction: column;
+      max-width: $mobile-width;
+
+      @media only screen and #{$medium} {
+        max-width: none;
+
+        @include grid(
+          $size: 4
+        );
+      }
+
+      ul {
+        padding-left: 0;
+        font-size: $font-size-small;
+        list-style: none;
+
+        @extend %font-montserrat-regular;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  %page-footer-legal {
+    $offset-right: 20px;
+
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: $legal-section-height;
+
+    @extend %main-container;
+
+    .logo {
+      width: 100px;
+      height: 20px;
+    }
+
+    .copyright {
+      margin-bottom: $offset-base;
+      color: $color-lightgrey-text;
+    }
+
+    // Image at the bottom of the footer
+    &::after {
+      display: none;
+      min-width: 40%;
+      min-height: 200px;
+      background: {
+        image: url(bundle-asset('global/during-lesson-extended.svg'));
+        repeat: no-repeat;
+        size: contain;
+      }
+      content: '';
+
+      @include position(
+        $position: absolute,
+        $bottom: 0,
+        $right: 0
+      );
+
+      @media only screen and #{$medium} {
+        display: block;
+      }
+    }
+
+    @media only screen and #{$medium} {
+      flex-direction: row;
+
+      .logo,
+      .copyright,
+      a {
+        margin: 0;
+        margin-right: $offset-right;
+      }
+    }
+  }
+
+  %page-footer-social {
+    .social-menu {
+      flex-direction: row;
+      flex-shrink: 0;
+      margin-bottom: ($offset-base * 2);
+      background-color: transparent;
+
+      @media only screen and #{$medium} {
+        margin-bottom: $offset-base;
+      }
+    }
+
+    .social-item a {
+      border-color: $color-purple;
+      color: $color-purple;
+
+      &:hover {
+        background: $color-purple;
+        color: $color-white;
+      }
+    }
+  }
+}
+
+.page-footer {
+  @extend %page-footer;
+
+  &-content {
+    @extend %page-footer-content;
+  }
+
+  &-legal {
+    @extend %page-footer-legal;
+  }
+}

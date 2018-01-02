@@ -1,0 +1,78 @@
+%base-triangle {
+  margin: auto;
+  transition: {
+    duration: $transition-time;
+    timing-function: linear;
+  };
+  border-width: 0;
+  border-style: solid;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  content: '';
+
+  // Border based pure css triangles require the element to have
+  // both width and height equal to 0.
+  // The size of a triangle is defined by its borders
+  @include equal-sizes(0);
+
+  @extend %hardware-accelerated;
+}
+
+@mixin triangle(
+  $width,
+  $height,
+  $color: currentColor,
+  $top: 0,
+  $bottom: 0,
+  $left: initial,
+  $right: 30px,
+  $rotation: 0deg
+) {
+  transform: rotate($rotation);
+  transition-property: transform;
+  border-bottom: {
+    width: $height;
+    color: $color;
+  };
+  // Sum of horizontal borders sizes is triangle width
+  border-right-width: ($width / 2);
+  border-left-width: ($width / 2);
+
+  @include position(
+    $position: absolute,
+    $top: $top,
+    $right: $right,
+    $left: $left,
+    $bottom: $bottom
+  );
+
+  @extend %base-triangle;
+}
+
+@at-root {
+  $dropdown-triangle-width: 16px;
+  $dropdown-triangle-height: 8px;
+
+  %dropdown-triangle-up {
+    position: relative;
+
+    &::after {
+      @include triangle(
+        $width: $dropdown-triangle-width,
+        $height: $dropdown-triangle-height
+      );
+    }
+  }
+
+  %dropdown-triangle-down {
+    position: relative;
+
+    &::after {
+      @include triangle(
+        $width: $dropdown-triangle-width,
+        $height: $dropdown-triangle-height,
+        $rotation: 180deg
+      );
+    }
+  }
+}

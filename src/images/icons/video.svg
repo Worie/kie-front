@@ -1,0 +1,14 @@
+<svg width="50" height="50" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>video</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(2680 -292)">
+<g id="video">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(-2680 292)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 0L 0 50L 50 50L 50 0L 0 0ZM 8.8 47L 3.7 47L 3.7 41.8L 8.9 41.8L 8.9 47L 8.8 47ZM 8.8 39.2L 3.7 39.2L 3.7 34L 8.9 34L 8.9 39.2L 8.8 39.2ZM 8.8 31.5L 3.7 31.5L 3.7 26.3L 8.9 26.3L 8.9 31.5L 8.8 31.5ZM 8.8 23.7L 3.7 23.7L 3.7 18.5L 8.9 18.5L 8.9 23.7L 8.8 23.7ZM 8.8 16L 3.7 16L 3.7 10.8L 8.9 10.8L 8.9 16L 8.8 16ZM 8.8 8.2L 3.7 8.2L 3.7 3L 8.9 3L 8.9 8.2L 8.8 8.2ZM 18.4 34.7L 18.4 15.7L 34.9 25.2L 18.4 34.7ZM 45 47L 39.8 47L 39.8 41.8L 45 41.8L 45 47ZM 45 39.2L 39.8 39.2L 39.8 34L 45 34L 45 39.2ZM 45 31.5L 39.8 31.5L 39.8 26.3L 45 26.3L 45 31.5ZM 45 23.7L 39.8 23.7L 39.8 18.5L 45 18.5L 45 23.7ZM 45 16L 39.8 16L 39.8 10.8L 45 10.8L 45 16ZM 45 8.2L 39.8 8.2L 39.8 3L 45 3L 45 8.2Z"/>
+</defs>
+</svg>

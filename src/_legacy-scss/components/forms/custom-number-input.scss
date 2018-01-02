@@ -1,0 +1,107 @@
+
+// This is the HTML structure for custom input number field.
+//
+// <div class="number-field-wrapper">
+//   <input type="number" class="form-input-number">
+//   <div class="quantity-controls-wrapper">
+//     <button type="button"
+//             class="quantity-increase">
+//     </button>
+//     <button type="button"
+//             class="quantity-decrease">
+//     </button>
+//   </div>
+// </div>
+
+@at-root {
+  $arrow-width: 11px;
+  $arrow-height: 6px;
+
+
+  %quantity-controls-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: $arrow-width;
+  }
+
+  %quantity-control {
+    position: relative;
+    width: $arrow-width;
+    height: $arrow-height;
+    margin: 2px 0;
+    border: none;
+    background: transparent;
+
+    @extend %href;
+
+    &:active {
+      transform: scale(0.8);
+      transition: transform $transition-time;
+    }
+  }
+
+  %quantity-increase {
+
+    @extend %quantity-control;
+
+    &::after {
+      position: absolute;
+
+      @include triangle(
+        $height: $arrow-height,
+        $width: $arrow-width,
+        $top: 0,
+        $right: 0,
+        $color: $color-purple
+      );
+    }
+  }
+
+  %quantity-decrease {
+
+    @extend %quantity-control;
+
+    &::after {
+      position: absolute;
+
+      @include triangle(
+        $height: $arrow-height,
+        $width: $arrow-width,
+        $top: 0,
+        $right: 0,
+        $rotation: 180deg,
+        $color: $color-purple
+      );
+    }
+  }
+
+  %number-field-wrapper {
+    display: flex;
+
+    .quantity-decrease {
+      @extend %quantity-decrease;
+    }
+
+    .quantity-increase {
+      @extend %quantity-increase;
+    }
+
+    .quantity-controls-wrapper {
+      @extend %quantity-controls-wrapper;
+    }
+
+    input[type="number"],
+    .form-input-number {
+      appearance: textfield;
+
+      &::-webkit-inner-spin-button {
+        appearance: none;
+      }
+    }
+  }
+
+  .number-field-wrapper {
+    @extend %number-field-wrapper;
+  }
+}

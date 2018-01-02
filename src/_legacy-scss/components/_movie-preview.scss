@@ -1,0 +1,87 @@
+@mixin movie-filtered(
+  $opacity,
+  $greyscale: 0%,
+  $brightness: 100%
+) {
+  transition: {
+    property: all;
+    duration: $transition-time;
+    timing-function: linear;
+  }
+  pointer-events: inherit;
+  opacity: $opacity;
+  filter:
+    grayscale($greyscale)
+    brightness($brightness);
+}
+
+@mixin movie-unfiltered() {
+  transition: filter $transition-time linear;
+  filter: none;
+  opacity: 1;
+}
+
+%play-button {
+  display: block;
+  position: relative;
+
+  .icon-play {
+    margin: auto;
+    padding-left: 15px;
+    border-width: 2px;
+    border-color: $color-white;
+    background-color: rgba($button-color-base, 0);
+    color: $color-white;
+    z-index: $z-index-movie-item;
+    pointer-events: none;
+    @include equal-sizes(55px);
+    @include position(
+      $position: absolute,
+      $top: 0,
+      $right: 0,
+      $bottom: 0,
+      $left: 0
+    );
+  }
+
+  &:hover {
+    background: none;
+    cursor: pointer;
+
+    .icon-play {
+      border-color: $button-color-base;
+      background-color: rgba($button-color-base, 1);
+    }
+  }
+
+  &:active {
+    .icon-play {
+      opacity: $clickable-opacity-active;
+    }
+  }
+}
+
+%movie-bar {
+  position: relative;
+
+  &::after {
+    $width: 100%;
+    $height: 25px;
+
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: $width;
+    height: $height;
+    background-image: url(bundle-asset('homepage/movie-bar.png'));
+    background-size: $width $height;
+    content: '';
+    z-index: $z-index-movie-item;
+    pointer-events: none;
+  }
+}
+
+.movie-preview-bg {
+  width: 100%;
+  border-radius: $border-radius-large;
+}

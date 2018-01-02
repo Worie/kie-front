@@ -1,0 +1,24 @@
+<svg width="73" height="50" viewBox="0 0 73 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>read-menu</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(1881 -292)">
+<g id="read-menu">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(-1881 292)" fill="#696E9E"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(-1871.45 292)" fill="#696E9E"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(-1843.05 292)" fill="#696E9E"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 66.3636 0L 66.3636 43.8636L 66.3636 46.8182L 6.36364 46.8182L 6.36364 43.8636L 6.36364 0L 0 0L 0 50L 72.7273 50L 72.7273 0L 66.3636 0Z"/>
+<path id="path1_fill" d="M 25.2273 43.8636L 25.2273 0L -4.33488e-07 0L -4.33488e-07 43.8636L 25.2273 43.8636Z"/>
+<path id="path2_fill" d="M 25.2273 43.8636L 25.2273 0L 1.73395e-06 0L 1.73395e-06 43.8636L 25.2273 43.8636Z"/>
+</defs>
+</svg>
