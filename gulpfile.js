@@ -2,14 +2,26 @@
 
 const gulp = require('gulp');
 const taskListing = require('gulp-task-listing');
+const { argv } = require('yargs');
+
 const $ = require('gulp-load-plugins')({
   lazy: false,
 });
 
 const path = require('path');
 
+const taskDirectory = "build/tasks/";
+
+const rootDirectory = argv.buildDir || '.';
+
 const task = function (pathRelativeToBuild) {
-  return require(path.resolve('./build/tasks/', pathRelativeToBuild))(gulp, $);
+  return require(
+    path.resolve(
+      rootDirectory,
+      taskDirectory,
+      pathRelativeToBuild
+    )
+  )(gulp, $);
 };
 
 gulp.task('help', taskListing);
@@ -46,3 +58,11 @@ gulp.task('copy:images', task('copy/images'));
 
 gulp.task('default', task('default'));
 gulp.task('watch', ['lint:gather-files'], task('watch'));
+
+// runs a task if this file has been executed by running gulpfile.js
+if (argv.run) {
+  // gets an array of comma separated tasks to run, and runs them
+  argv.run.split(',').forEach(task => {
+    gulp.start(task);
+  });
+}

@@ -7,8 +7,8 @@ module.exports = function (gulp, $) {
   return function () {
     return gulp.src(patterns.src.app.sass)
       .pipe($.modified(lintedSourcesCacheIdentifier))
-      .pipe($.scssLint({
-        config: '.scss-lint.yml',
-      }));
+//      .pipe($.scssLint({
+//        config: '.scss-lint.yml',
+//      }));
   };
 };
