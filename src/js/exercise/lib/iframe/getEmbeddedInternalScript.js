@@ -8,6 +8,7 @@ const addModule = module => {
 };
 
 export default config => {
+
   // This will be added to the document that user experiments on
   addModule(flexAxis);
   addModule(setupAnchors);
