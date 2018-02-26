@@ -24,7 +24,6 @@ module.exports = function (gulp) {
     gulp.watch(patterns.src.app.js, ['_watchSrcAppJsSequence']);
     gulp.watch(patterns.src.app.images, ['copy:images']);
     gulp.watch(patterns.src.app.fonts, ['copy:fonts']);
-    gulp.watch(patterns.demos, ['copy:demos']);
     gulp.watch(patterns.src.app.legacySassWatch, ['legacy-sass']);
   };
 };
